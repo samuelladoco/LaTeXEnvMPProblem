@@ -4,7 +4,7 @@
 % ---- Preamble -------------------------------------------------------------- %
 % -------- Packages ------------------------------------------------------ %
 % AMS
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath}
 
 % Enum Item
 \usepackage{enumitem}
@@ -112,13 +112,13 @@
 %
 以下のような特徴があります（詳しくは次節以降で解説）。
 \begin{itemize}
-\item 問題の中身は、align系を使用可能
+\item 問題の中身は、amsmathパッケージのalignat、alignを使用可能
     \begin{itemize}
     \item 複数の式の記述が可能
     \item 数式番号の個別付与、相互参照が可能
           （例えば、式\eqref{eqn:P_Con-Non}は非負制約）
     \end{itemize}
-\item 問題名\mpprobref{mpprob:P}は相互参照可能
+\item nameref（hyperref）パッケージを使えば、問題名\mpprobref{mpprob:P}は相互参照可能
 \end{itemize}
 
 
@@ -163,11 +163,13 @@
 
 
 \section{相互参照}
+nameref（hyperref）パッケージを使い、
 \verb|\begin{mpproblem}{$P$}| の下に \verb|\label{mpprob:P}| とラベルを定義し、
 別の場所で \verb|\mpprobref{mpprob:P}| と書くと、
 \mpprobref{mpprob:P}と出力されます。
 問題名である \verb|$P$| の両側に()がついたものを相互参照できるということです。
-hyperrefパッケージを使うと、問題名の参照から問題名の定義箇所にジャンプできます。
+さらに、hyperrefパッケージを使うと、
+問題名の参照から問題名の定義箇所にジャンプできます。
 この\mpprobref{mpprob:P}の$()$の内側の文字をクリックしてみてください
 （PDFを拡大したあとでクリックすると、よりわかりやすい）。
 
@@ -183,8 +185,8 @@ hyperrefパッケージを使うと、問題名の参照から問題名の定義
     \end{itemize}
 \item 問題名なしバージョンでラベルを設定しても、
       コンパイルがとおってしいます。
-\item 問題の中身の数式環境は、alignやalignat（同系統のものも含む？）以外だと、
-      問題の前後のスペースが正しい量にならないようです。
+\item 問題の中身の数式環境は、alignatやalign（同系統のほかものも含む？）
+      以外だと、問題の前後のスペースが正しい量にならないようです。
 \end{itemize}
 
 \end{document}
